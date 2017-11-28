@@ -37,6 +37,12 @@ Builds the app for production to the `build` folder:
 npm run build
 ```
 
+## Testing
+```
+npm test a
+```
+
+
 ## Custom pokeapi server
 You can change the pokeapi server address by changing the environment variable `REACT_APP_POKEAPI_URL` in `.env` file.
 

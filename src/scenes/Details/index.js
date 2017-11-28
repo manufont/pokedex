@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Spinner from "react-spinkit";
 
@@ -101,8 +101,13 @@ class Details extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+Details.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired
+    })
+  }).isRequired
+};
 
-const mapDispatchToProps = dispatch => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Details);
+export default Details;
