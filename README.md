@@ -38,4 +38,4 @@ npm run build
 ```
 
 ## Custom pokeapi server
-You can change the pokeapi server address consumed by the app by changing the environment variable `REACT_APP_POKEAPI_URL` in `.env` file.
+You can change the pokeapi server address by changing the environment variable `REACT_APP_POKEAPI_URL` in `.env` file.
