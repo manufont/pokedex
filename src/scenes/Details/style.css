@@ -1,0 +1,62 @@
+.details-title {
+  display: flex;
+  align-items: center;
+}
+
+.arrow-back {
+  font-size: 48px;
+  margin: 0 12px;
+}
+
+.name {
+  flex: 1;
+}
+
+.content {
+  padding: 16px;
+  display: flex;
+}
+
+.content-spinner-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-text {
+  flex: 1;
+}
+
+.details-line {
+  margin: 0 12px 12px 12px;
+}
+
+.sprite-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sprite {
+  margin: 4px;
+}
+
+.stats-compare {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.stats-compare-select {
+  background-color: inherit;
+  border-width: 0 0 1px 0;
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.stats-compare-select:focus {
+  outline-color: var(--primary-color);
+}
+
+.stats-compare-option {
+  background-color: var(--app-background-color);
+  outline-color: var(--primary-color);
+}

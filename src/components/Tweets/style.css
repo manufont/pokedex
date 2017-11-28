@@ -1,0 +1,9 @@
+.tweets {
+  height: 200px;
+  overflow: auto;
+}
+
+a.tweet-link {
+  color: inherit;
+  opacity: 0.5;
+}

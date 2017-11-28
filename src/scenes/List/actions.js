@@ -1,3 +1,5 @@
+import { pokemonList } from "paths";
+
 export const setInput = inputValue => ({
   type: "SET_INPUT",
   payload: inputValue
@@ -5,9 +7,7 @@ export const setInput = inputValue => ({
 
 export const loadPokemons = () => ({
   type: "LOAD_POKEMONS",
-  payload: fetch(
-    "https://pokeapi.co/api/v2/pokemon/?limit=99999"
-  ).then(response => response.json())
+  payload: fetch(pokemonList()).then(response => response.json())
 });
 
 export const seeMore = () => ({

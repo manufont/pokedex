@@ -1,0 +1,12 @@
+.details-line {
+  display: flex;
+}
+
+.details-line-label {
+  opacity: 0.5;
+  margin-right: 8px;
+}
+
+.details-line-children {
+  flex: 1;
+}

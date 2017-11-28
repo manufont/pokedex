@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
+import classNames from "classnames";
 
 import * as actions from "./actions";
 import "./style.css";
+import { PokemonItem } from "components";
 
 class List extends Component {
   componentWillMount() {
@@ -12,6 +14,16 @@ class List extends Component {
     if (!list.loaded) {
       actions.loadPokemons();
     }
+  }
+
+  setInputRef = input => {
+    this.searchInput = input;
+  };
+
+  componentDidMount() {
+    this.searchInput.focus();
+    this.searchInput.selectionStart = this.searchInput.value.length;
+    this.searchInput.selectionEnd = this.searchInput.value.length;
   }
 
   onInputChange = event => {
@@ -23,22 +35,44 @@ class List extends Component {
   };
 
   render() {
-    const { inputValue, displayedPokemons, hiddenPokemons } = this.props.list;
+    const {
+      inputValue,
+      inputValid,
+      displayedPokemons,
+      hiddenPokemons
+    } = this.props.list;
 
     return (
       <div>
-        <div>
-          <input type="text" onChange={this.onInputChange} value={inputValue} />
+        <div className={classNames("header", { middle: !inputValid })}>
+          <input
+            ref={this.setInputRef}
+            type="text"
+            className={`search-input title`}
+            placeholder="Find a pokemon..."
+            onChange={this.onInputChange}
+            value={inputValue}
+          />
         </div>
-        <div>
-          {displayedPokemons.map((pokemon, index) =>
-            <div>
-              <Link key={index} to={`/details/${pokemon.id}`}>
-                {pokemon.name}
-              </Link>
+        <div className="list-container">
+          {displayedPokemons.map((pokemon, index) => (
+            <Link
+              key={index}
+              to={`/pokemon/${pokemon.name}/${pokemon.id}`}
+              className="list-item no-style-link"
+            >
+              <PokemonItem pokemon={pokemon} />
+            </Link>
+          ))}
+          {hiddenPokemons && (
+            <div
+              key={displayedPokemons.length}
+              className="list-item see-more"
+              onClick={this.seeMore}
+            >
+              <i className="material-icons add-icon">add</i>
             </div>
           )}
-          {hiddenPokemons && <div onClick={this.seeMore}>...voir plus</div>}
         </div>
       </div>
     );

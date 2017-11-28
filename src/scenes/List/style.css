@@ -1,0 +1,51 @@
+.header {
+  transition: transform 0.4s ease;
+}
+
+.header.middle {
+  transform: translateY(30vh);
+}
+
+.search-input {
+  width: 100%;
+  letter-spacing: -.005em;
+  color: white;
+  caret-color: var(--primary-color);
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+}
+
+.search-input:focus {
+  outline: 0;
+}
+
+.list-container {
+  padding: 8px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-item {
+  margin: 8px;
+  animation: fadein 0.4s;
+}
+
+.list-item:hover {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.see-more {
+  text-align: center;
+  cursor: pointer;
+  height: 140px;
+  width: 140px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.add-icon {
+  line-height: 140px;
+  font-size: 56px;
+}

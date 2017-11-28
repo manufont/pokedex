@@ -1,5 +1,17 @@
-body {
+html {
+  --app-background-color: #3c3c3c;
+  background-color: var(--app-background-color);
+}
+
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+}
+
+body {
+  max-width: 768px;
+  margin: 0 auto;
+  color: white;
 }
