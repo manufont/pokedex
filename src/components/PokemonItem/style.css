@@ -1,6 +1,7 @@
 .pokemon-item {
   height: 140px;
   width: 140px;
+  display: flex;
   position: relative;
   overflow: hidden;
   border-radius: 12px;
@@ -11,7 +12,7 @@
   box-sizing: border-box;
   text-align: center;
   padding: 8px;
-  height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,4 +20,6 @@
 
 .picture {
   flex: 1;
+  background-repeat: no-repeat;
+  background-position: center;
 }

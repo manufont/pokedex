@@ -10,7 +10,7 @@ const PokemonStats = ({ pokemon, handleChange, comparedType }) => {
   return (
     <LabelledDiv label="Stats">
       <div className="stats-compare details-line">
-        Compare with{" "}
+        Compare with
         <select
           className="stats-compare-select"
           value={comparedType}
@@ -21,7 +21,7 @@ const PokemonStats = ({ pokemon, handleChange, comparedType }) => {
               {capitalize(type)}
             </option>
           ))}
-        </select>{" "}
+        </select>
         pokemons
       </div>
       {pokemon.stats.map((stat, index) => (

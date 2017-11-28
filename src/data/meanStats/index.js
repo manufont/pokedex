@@ -38,6 +38,8 @@ export const buildAverageStats = () =>
     });
   });
 
+//These stats were calculated using buildAverageStats script.
+//Due to pokeapi restriction limits & bad performance, you need to run it on a localy deployed pokeapi.
 export default {
   all: {
     hp: 68.95468914646997,
@@ -192,13 +194,3 @@ export default {
     speed: 64.60344827586206
   }
 };
-
-//Average stats based on https://pokemondb.net/pokebase/276112/what-is-the-average-base-stat-total-of-every-pokemon
-/*export default {
-  hp: 68.86,
-  attack: 76.86,
-  defense: 72.32,
-  "special-attack": 70,
-  "special-defense": 70.4,
-  speed: 66.6
-};*/

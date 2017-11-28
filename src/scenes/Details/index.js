@@ -5,11 +5,12 @@ import Spinner from "react-spinkit";
 
 import "./style.css";
 import { formatName } from "utils";
-import { PokemonItem, Tweets } from "components";
+import { PokemonItem } from "components";
 import {
   PokemonBasicDetails,
   PokemonSprites,
-  PokemonStats
+  PokemonStats,
+  PokemonTweets
 } from "./components";
 import { pokemonDetails } from "paths";
 
@@ -91,10 +92,10 @@ class Details extends Component {
               comparedType={comparedType}
               handleChange={this.handleChange}
             />
-            <Tweets pokemonName={details.name} />
             <PokemonSprites pokemon={details} />
           </div>
         )}
+        <PokemonTweets pokemonName={match.params.name} hide={!details} />
       </div>
     );
   }

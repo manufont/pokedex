@@ -21,20 +21,23 @@ function getTweetText(status) {
   };
 }
 
-wss.on("connection", function(socket, request) {
-  function handleTwitterApiError(errors) {
-    errors.forEach(function(error) {
-      if (error.code === 215) {
-        //'Bad Authentication data'
-        console.error(
-          "Bad Authentication data. Please enter valid Twitter API consumer & token keys in .env file."
-        );
-        socket.close();
-      } else {
-        console.error(error);
-      }
-    });
+function handleTwitterApiError(error, socket) {
+  switch (error.code) {
+    case 215: //'Bad Authentication data'
+      console.error(
+        "Bad Authentication data: Please enter valid Twitter API consumer & token keys in .env file"
+      );
+      socket.close();
+      break;
+    case 420: //'Enhance Your Calm'
+      console.error("API rate limit reached");
+      break;
+    default:
+      console.error(error);
   }
+}
+
+wss.on("connection", function(socket, request) {
   const keyword = url.parse(request.url, true).query.keyword;
 
   twitterClient
@@ -42,7 +45,9 @@ wss.on("connection", function(socket, request) {
     .then(function(response) {
       socket.send(JSON.stringify(response.statuses.map(getTweetText)));
     })
-    .catch(handleTwitterApiError);
+    .catch(function(errors) {
+      errors.forEach(handleTwitterApiError);
+    });
 
   const stream = twitterClient.stream("statuses/filter", { track: keyword });
   stream.on("data", function(tweet) {

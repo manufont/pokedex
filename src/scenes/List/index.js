@@ -45,16 +45,24 @@ class List extends Component {
     return (
       <div>
         <div className={classNames("header", { middle: !inputValid })}>
-          <input
+          <textarea
+            rows={inputValid ? 1 : undefined}
             ref={this.setInputRef}
             type="text"
-            className={`search-input title`}
+            className={`title search-input`}
             placeholder="Find a pokemon..."
             onChange={this.onInputChange}
             value={inputValue}
           />
         </div>
         <div className="list-container">
+          {inputValid &&
+          displayedPokemons.length === 0 && (
+            <span>
+              No matching pokemons were found for
+              {` "${inputValue}"`}
+            </span>
+          )}
           {displayedPokemons.map((pokemon, index) => (
             <Link
               key={index}
