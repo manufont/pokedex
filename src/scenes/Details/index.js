@@ -49,7 +49,9 @@ class Details extends Component {
   }
 
   handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
+    this.setState({
+      [name]: event.target.value
+    });
   };
 
   render() {

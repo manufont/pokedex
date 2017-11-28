@@ -10,8 +10,8 @@ import { PokemonItem } from "components";
 
 class List extends Component {
   componentWillMount() {
-    const { list, actions } = this.props;
-    if (!list.loaded) {
+    const { loaded, actions } = this.props;
+    if (!loaded) {
       actions.loadPokemons();
     }
   }
@@ -40,7 +40,7 @@ class List extends Component {
       inputValid,
       displayedPokemons,
       hiddenPokemons
-    } = this.props.list;
+    } = this.props;
 
     return (
       <div>
@@ -88,7 +88,11 @@ class List extends Component {
 }
 
 const mapStateToProps = state => ({
-  list: state.list
+  inputValue: state.list.inputValue,
+  inputValid: state.list.inputValid,
+  displayedPokemons: state.list.displayedPokemons,
+  hiddenPokemons: state.list.hiddenPokemons,
+  loaded: state.list.loaded
 });
 
 const mapDispatchToProps = dispatch => ({
