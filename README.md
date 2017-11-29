@@ -15,7 +15,7 @@ npm install
 If you want to get a live list of tweets related to each pokemon, you'll need to configure & launch the tweets socket server
 
 ### Tweets socket server configuration
-Add your twitter api credentials to `.env` file.
+Add your twitter api credentials to the `.env` file.
 
 ## Launch
 
@@ -32,7 +32,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 or
 
-Builds the app for production to the `build` folder:
+Build the app for production (output to the `build` folder):
 ```
 npm run build
 ```
@@ -44,7 +44,7 @@ npm test a
 
 
 ## Custom pokeapi server
-You can change the pokeapi server address by changing the environment variable `REACT_APP_POKEAPI_URL` in `.env` file.
+You can change the pokeapi server address by changing the environment variable `REACT_APP_POKEAPI_URL` in the `.env` file.
 
 ## License
 
