@@ -6,6 +6,10 @@ import "./style.css";
 import { LabelledDiv } from "components";
 import { formatDate, formatName } from "utils";
 
+const getSocketURL = socket =>
+  (window.location.protocol === 'https' ? 'wss' : 'ws') +
+  '://' + window.location.host + process.env.REACT_APP_BASE_ROUTE + socket;
+
 class PokemonTweets extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +22,7 @@ class PokemonTweets extends Component {
 
   componentWillMount() {
     const socket = new WebSocket(
-      `ws://localhost:3000/tweets?keyword=${this.props.pokemonName}`
+      getSocketURL(`/tweets?keyword=${this.props.pokemonName}`)
     );
     socket.onerror = error => {
       console.error(
