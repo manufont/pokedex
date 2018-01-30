@@ -1,6 +1,7 @@
 # Manu's pokedex
 
 A basic React pokedex using data from [pokeapi](https://pokeapi.co/).
+You can check it out live [here](http://www.manufont.com/pokedex/).
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
