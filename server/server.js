@@ -12,7 +12,7 @@ var twitterClient = new Twitter({
   access_token_secret: process.env.SERVER_TWITTER_TOKEN_SECRET
 });
 
-const wss = new WebSocket.Server({ port: 4000 });
+const wss = new WebSocket.Server({ port: 4100 });
 
 function getTweetText(status) {
   return {
@@ -61,4 +61,4 @@ wss.on("connection", function(socket, request) {
   });
 });
 
-console.log("running Tweet Socket server on port 4000...");
+console.log("running Tweet Socket server on port 4100...");
